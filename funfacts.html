@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Fun Facts</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            padding: 40px;
+            max-width: 600px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 30px;
+            font-size: 28px;
+        }
+
+        .fact-box {
+            background: #f5f7fa;
+            border-left: 5px solid #667eea;
+            padding: 25px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+            min-height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .fact-text {
+            font-size: 18px;
+            color: #555;
+            line-height: 1.6;
+            font-weight: 500;
+        }
+
+        button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 12px 40px;
+            font-size: 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            font-weight: 600;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎉 Fun Fact Generator</h1>
+        <div class="fact-box">
+            <p class="fact-text" id="fact">Click the button to get a random fun fact!</p>
+        </div>
+        <button onclick="showRandomFact()">Get Another Fact</button>
+    </div>
+
+    <script>
+        const funFacts = [
+            "Honey never spoils. Archaeologists have found 3,000-year-old honey in Egyptian tombs that was still edible!",
+            "A group of flamingos is called a 'flamboyance'.",
+            "Octopuses have three hearts—two pump blood to the gills, and one pumps it to the rest of the body.",
+            "Bananas are berries, but strawberries are not!",
+            "The shortest war in history lasted only 38 to 45 minutes.",
+            "Cats have over 20 different sounds they can make to communicate.",
+            "A single bolt of lightning is hotter than the surface of the sun.",
+            "Butterflies taste with their feet to find out whether the plant they sit on is good to lay eggs on.",
+            "The smell of coffee can actually increase alertness even if you don't drink it.",
+            "A group of crows is called a 'murder'.",
+            "The Eiffel Tower can be 15 cm taller during summer due to thermal expansion.",
+            "Penguins have knees! They're just hidden inside their bodies.",
+            "Tomatoes are fruits, botanically speaking, but legally classified as vegetables.",
+            "A flock of sheep is called a 'fluffle' in some regions.",
+            "The fingerprints of koalas are nearly identical to human fingerprints.",
+            "Clownfish are all born male, and some can change into females when needed.",
+            "Wombat droppings are cube-shaped to prevent them from rolling away.",
+            "The Great Wall of China is not visible from space with the naked eye.",
+            "Snails can sleep for up to three years.",
+            "A group of pandas is called an 'embarrassment'."
+        ];
+
+        function showRandomFact() {
+            const randomIndex = Math.floor(Math.random() * funFacts.length);
+            const factElement = document.getElementById('fact');
+            
+            // Add fade-out effect
+            factElement.style.opacity = '0.5';
+            
+            setTimeout(() => {
+                factElement.textContent = funFacts[randomIndex];
+                factElement.style.opacity = '1';
+            }, 200);
+        }
+
+        // Show a fact when the page loads
+        window.addEventListener('load', showRandomFact);
+    </script>
+</body>
+</html>
